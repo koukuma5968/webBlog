@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+    <div class="article" th:fragment="articleBody">
+        <div class="Large">
+            <h1 id="Largeitem" th:text="${Largeitem}"></h1>
+            <p><span th:text="${Largetext}"></span></p>
+        </div>
+        <div class="Medium" th:each="Medium: ${MediumList}" th:object="${Medium}">
+			<h2 th:inline="text">[[*{item}]]</h2>
+			<div>
+	            <p th:text="*{text}"></p>
+			</div>
+	        <div th:each="Small: ${SmallItemList}" th:object="${SmallItem}">
+	            <h3 th:inline="text">[[*{item}]]</h3>
+	            <table class="table" summary="会社概要">
+	                <tr>
+	                    <td>社名</td>
+	                    <td>会社名</td>
+	                </tr>
+	                <tr>
+	                    <td>店舗所在地</td>
+	                    <td>住所</td>
+	                </tr>
+	                <tr>
+	                    <td>TEL/FAX</td>
+	                    <td>TEL： 　FAX：</td>
+	                </tr>
+	                <tr>
+	                    <td>営業時間</td>
+	                    <td>月～金　9：00～17：00</td>
+	                </tr>
+	            </table>
+	            <br clear=left>
+	        </div>
+		</div>
+    </div>
+</body>
+</html>
