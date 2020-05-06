@@ -4,18 +4,20 @@
 <meta charset="UTF-8">
 </head>
 <body>
-    <div class="article" th:fragment="articleBody">
+    <div class="Article" th:fragment="articleBody">
         <div class="Large">
-            <h1 id="Largeitem" th:text="${Largeitem}"></h1>
-            <p><span th:text="${Largetext}"></span></p>
+            <h1 id="Title" th:text="${title}"></h1>
+            <div class="LargeText" >
+                <p th:utext="${largeText}"></p>
+            </div>
         </div>
-        <div class="Medium" th:each="Medium: ${MediumList}" th:object="${Medium}">
-			<h2 th:inline="text">[[*{item}]]</h2>
+        <div class="medium" th:each="medium: ${mediumList}">
+			<h2 th:text="${medium.item}"></h2>
 			<div>
 	            <p th:text="*{text}"></p>
 			</div>
-	        <div th:each="Small: ${SmallItemList}" th:object="${SmallItem}">
-	            <h3 th:inline="text">[[*{item}]]</h3>
+	        <div class="Small" th:each="small: ${smallList}" >
+	            <h3 th:text="${Small.item}"></h3>
 	            <table class="table" summary="会社概要">
 	                <tr>
 	                    <td>社名</td>
