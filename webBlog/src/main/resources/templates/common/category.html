@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<th:block th:fragment="actegoryFragment">
+	    <ul class="link">
+	        <li th:each="actegory: ${actegoryList}" >
+	            <div th:text="${actegory}"></div>
+	        </li>
+	    </ul>
+	</th:block>
+</body>
+</html>

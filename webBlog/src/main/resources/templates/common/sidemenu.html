@@ -4,10 +4,17 @@
 <meta charset="UTF-8">
 </head>
 <body>
-	<div class="subinfo" th:fragment="sideBody">
-        <div class="link" th:each="side: ${sideLinkList}">
-			<a th:href="'#'+${side.linkid}" th:text="${side.linkitem}"></a>
+	<th:block th:fragment="sidemenuFragment">
+		<div class="submenu">
+	        <div class="link" th:each="menu: ${sideMenuList}">
+				<a th:href="${menu.linkAction}" th:text="${menu.linkText}"></a>
+			</div>
 		</div>
-	</div>
+		<div class="subinfo">
+	        <div class="link" th:each="info: ${sideInfoist}">
+				<a th:href="'#'+${info.linkId}" th:text="${info.linkText}"></a>
+			</div>
+		</div>
+	</th:block>
 </body>
 </html>

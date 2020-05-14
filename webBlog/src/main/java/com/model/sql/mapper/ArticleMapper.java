@@ -2,10 +2,10 @@ package com.model.sql.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.model.sql.dto.Article;
+import com.model.sql.dto.body.article.ArticleDto;
 
 @Mapper
 public interface ArticleMapper {
 
-	public Article SEL_ATICLE_BY_ID(String id);
+	public ArticleDto SEL_ATICLE_BY_ID(String id);
 }
