@@ -3,6 +3,7 @@ package com.model.html.header;
 public class HeaderBean {
 
 	private String title;
+	
 	private String imagePath;
 
 	public String getTitle() {
