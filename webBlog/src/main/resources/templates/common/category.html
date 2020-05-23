@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-</head>
 <body>
-	<th:block th:fragment="actegoryFragment">
+	<th:block th:fragment="categoryFragment">
 	    <ul class="link">
-	        <li th:each="actegory: ${actegoryList}" >
-	            <div th:text="${actegory}"></div>
+	        <li th:each="category: ${categoryList}" >
+	            <div th:text="${category}"></div>
 	        </li>
 	    </ul>
 	</th:block>

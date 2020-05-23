@@ -20,6 +20,6 @@ public class MainController extends PageBuilder {
 
 		super.execute(model);
 
-		return "main/top";
+		return "main/article";
 	}
 }

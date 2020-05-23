@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="UTF-8" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}" />
-<link rel="stylesheet" type="text/css" th:href="@{/css/actegory.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/category.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/article.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/sidemenu.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{${hashMap.articleCss}}">
 </head>
 <body>
 <header class="header" th:insert="common/header :: headerFragment"></header>
-<div class="actegory" th:insert="common/actegory :: actegoryFragment"></div>
+<div class="category" th:insert="common/category :: categoryFragment"></div>
 <main class="main-inner">
 	<div class="Article">
-		<th:block th:insert="common/article/artilcebody :: artilcebodyFragment"></th:block>
+	    <th:block th:replace="'common/article' + ${hashMap.articlePath} + ${hashMap.articleName}"></th:block>
 	</div>
 	<div class="rightmenu" th:insert="common/sidemenu :: sidemenuFragment"></div>
 </main>

@@ -38,7 +38,6 @@
 	background-color: #add8e6;
 }
 .subinfo {
-    background-color: #ffffff;
 	font-size: 100%;
 	height: auto;
 	text-align: center;
@@ -49,7 +48,8 @@
 	top : 0;
 }
 .subinfo .link {
-    width: 100%;
+    background-color: #ffffff;
+	width: 100%;
 	font-size: 100%;
     list-style-type: none;
     margin: 0px;

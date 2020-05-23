@@ -8,7 +8,6 @@ public class ArticleDto {
 	private String category3;
 	private String category4;
 	private String category5;
-	private LargeDto large;
 
 	public int getId() {
 		return id;
@@ -56,14 +55,6 @@ public class ArticleDto {
 
 	public void setCategory5(String category5) {
 		this.category5 = category5;
-	}
-
-	public LargeDto getLarge() {
-		return large;
-	}
-
-	public void setLarge(LargeDto large) {
-		this.large = large;
 	}
 
 }

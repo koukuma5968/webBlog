@@ -1,12 +1,12 @@
 package com.controller.builder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.model.html.body.side.SideBean;
 import com.model.html.body.top.TopBean;
 import com.model.html.footer.FooterBean;
 import com.model.html.header.HeaderBean;
-import com.model.sql.dto.body.article.LargeDto;
 
 public enum PageBuilderType implements BuilderInterface {
 
@@ -41,12 +41,16 @@ public enum PageBuilderType implements BuilderInterface {
 		@Override
 		public Object createBody() {
 
-			LargeDto large = new LargeDto();
+			String articlePath = "/SpringToolInst";
+			String articleName = "/SpringToolInst";
+			String articleCss = "/article/SpringToolInst/stylesheet.css";
 
-			large.setHeadLine("Spring WEBアプリケーション");
-			large.setHeadText("Spring bootを使ったWEBアプリケーションの作成<BR>導入からプロジェクト作成まで");
+			HashMap<String, String> articleBean = new HashMap<String, String>();
+			articleBean.put("articlePath", articlePath);
+			articleBean.put("articleName", articleName);
+			articleBean.put("articleCss", articleCss);
 
-			return large;
+			return articleBean;
 		}
 	},
 	SIDE {

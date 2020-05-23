@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-</head>
 <body>
 	<th:block th:fragment="sidemenuFragment">
 		<div class="submenu">
@@ -11,7 +8,7 @@
 			</div>
 		</div>
 		<div class="subinfo">
-	        <div class="link" th:each="info: ${sideInfoist}">
+	        <div class="link" th:each="info: ${sideBeanList}">
 				<a th:href="'#'+${info.linkId}" th:text="${info.linkText}"></a>
 			</div>
 		</div>
