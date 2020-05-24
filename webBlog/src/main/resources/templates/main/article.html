@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
 <meta charset="UTF-8" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
@@ -15,7 +14,7 @@
 <div class="category" th:insert="common/category :: categoryFragment"></div>
 <main class="main-inner">
 	<div class="Article">
-	    <th:block th:replace="'common/article' + ${hashMap.articlePath} + ${hashMap.articleName}"></th:block>
+	    <th:block th:replace="${hashMap.articleHtml}"></th:block>
 	</div>
 	<div class="rightmenu" th:insert="common/sidemenu :: sidemenuFragment"></div>
 </main>

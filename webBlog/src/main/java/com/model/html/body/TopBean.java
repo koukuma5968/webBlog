@@ -1,4 +1,4 @@
-package com.model.html.body.top;
+package com.model.html.body;
 
 public class TopBean {
 

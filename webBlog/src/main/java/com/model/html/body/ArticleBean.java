@@ -1,4 +1,4 @@
-package com.model.html.body.article;
+package com.model.html.body;
 
 import java.util.List;
 

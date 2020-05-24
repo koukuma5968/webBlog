@@ -1,4 +1,4 @@
-package com.model.html.body.side;
+package com.model.html.body;
 
 public class SideBean {
 

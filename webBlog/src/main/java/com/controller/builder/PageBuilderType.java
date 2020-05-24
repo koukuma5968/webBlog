@@ -3,8 +3,8 @@ package com.controller.builder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.model.html.body.side.SideBean;
-import com.model.html.body.top.TopBean;
+import com.model.html.body.SideBean;
+import com.model.html.body.TopBean;
 import com.model.html.footer.FooterBean;
 import com.model.html.header.HeaderBean;
 
@@ -41,13 +41,11 @@ public enum PageBuilderType implements BuilderInterface {
 		@Override
 		public Object createBody() {
 
-			String articlePath = "/SpringToolInst";
-			String articleName = "/SpringToolInst";
+			String articleHtml = "common/article/SpringToolInst/SpringToolInst.html";
 			String articleCss = "/article/SpringToolInst/stylesheet.css";
 
 			HashMap<String, String> articleBean = new HashMap<String, String>();
-			articleBean.put("articlePath", articlePath);
-			articleBean.put("articleName", articleName);
+			articleBean.put("articleHtml", articleHtml);
 			articleBean.put("articleCss", articleCss);
 
 			return articleBean;
