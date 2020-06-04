@@ -2,6 +2,12 @@ server:
   port: 9080
   servlet:
     context-path: /blog
+  ajp:
+    port: 8009
+    schema: http
+    redirectport: 8443
+    secure: false
+    allowtrace: false
 spring:
   datasource:
     username: kou

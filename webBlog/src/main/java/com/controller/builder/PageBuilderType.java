@@ -41,7 +41,7 @@ public enum PageBuilderType implements BuilderInterface {
 		@Override
 		public Object createBody() {
 
-			String articleHtml = "common/article/SpringToolInst/SpringToolInst.html";
+			String articleHtml = "common/article/SpringToolInst/sheet001.html";
 			String articleCss = "/article/SpringToolInst/stylesheet.css";
 
 			HashMap<String, String> articleBean = new HashMap<String, String>();
@@ -55,7 +55,13 @@ public enum PageBuilderType implements BuilderInterface {
 		@Override
 		public Object createBody() {
 
-			String[][] sidestrs = {{"Title", "Spring WEBアプリケーション"}};
+			String[][] sidestrs = {
+					{"T1", "Spring tool suiteの導入"}
+					,{"H1", "Spring tool suiteをダウンロード"}
+					,{"H2", "Spring tool suiteをインストール"}
+					,{"H3", "Spring tool suiteを起動"}
+					,{"H4", "Spring tool suiteを日本語化"}
+					};
 
 			ArrayList<SideBean> sideLinkList = new ArrayList<SideBean>();
 			SideBean side = null;

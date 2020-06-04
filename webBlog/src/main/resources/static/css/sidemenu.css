@@ -2,7 +2,7 @@
 .rightmenu {
 	float: right;
 	clear: none;
-	width: 22%;
+	width: 20%;
 	height: auto;
 	text-align: center;
 	font-size: 100%;
@@ -46,18 +46,22 @@
 	padding: 0px;
 	position: sticky;
 	top : 0;
+	border-top: 0.5px solid #666;
+	border-bottom: 0.5px solid #666;
 }
 .subinfo .link {
-    background-color: #ffffff;
 	width: 100%;
 	font-size: 100%;
     list-style-type: none;
     margin: 0px;
     padding: 0px;
 	text-decoration: none;
+	border-top: 0.5px solid #666;
+	border-bottom: 0.5px solid #666;
 }
 .subinfo .link a {
     padding : 10px 0px;
+    float: left;
     text-decoration: none;
     display: block;
     color: #030;
