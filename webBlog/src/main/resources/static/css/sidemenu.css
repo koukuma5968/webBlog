@@ -1,72 +1,128 @@
 @charset "UTF-8";
+
 .rightmenu {
-	float: right;
-	clear: none;
-	width: 20%;
+    margin-top: 10px;
+    width: 30%;
 	height: auto;
 	text-align: center;
 	font-size: 100%;
 	border-color: #666;
-	margin : 5px 0px;
-	padding: 0px;
-	font-family: Verdana, “游ゴシック”, YuGothic, “Hiragino Kaku Gothic ProN”, Meiryo, sans-serif;
+	padding: 15px 15px;
+	display: grid;
+	grid-template-rows: max-content max-content;
+    border-radius: 10px 10px 10px 10px;
 }
-.submenu {
-    background-color: #ffffff;
-	font-size: 100%;
-	height: auto;
-	text-align: center;
-	width: 100%;
-	color: #c0c0c0;
-    margin-bottom: 15px;
+
+.category {
+    position: relative;
+    float: right;
+    clear: none;
+    height: max-content;
+    font-size: 100%;
+    border-color: #666;
+    border: 1px solid #00bfff;
+    border-radius: 10px;
+    padding: 10px 0px;
+    margin: 10px 0px 0px 20px;
 }
-.submenu .link {
-    list-style-type: none;
-	width: 100%;
-    margin: 0px;
-    padding: 0px;
-	text-decoration: none;
+
+.category h1 {
+    display: inline-block;
+    position: absolute;
+    top: -22px;
+    left: 10px;
+    background-color:#f5f5fa;
+    text-align: left;
+    padding: 0px 10px 0px 10px;
+    color: #1e90ff;
+    font-size: 105%;
+    font-weight: bold;
 }
-.submenu .link a {
-    padding : 10px 0px;
-    text-decoration: none;
-    display: block;
-    color: #030;
-}
-.submenu .link a:hover {
-	color: #FFC;
-	background-color: #add8e6;
-}
-.subinfo {
-	font-size: 100%;
-	height: auto;
-	text-align: center;
-	width: 100%;
-	color: #c0c0c0;
-	padding: 0px;
-	position: sticky;
-	top : 0;
-	border-top: 0.5px solid #666;
-	border-bottom: 0.5px solid #666;
-}
-.subinfo .link {
-	width: 100%;
-	font-size: 100%;
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
-	text-decoration: none;
-	border-top: 0.5px solid #666;
-	border-bottom: 0.5px solid #666;
-}
-.subinfo .link a {
-    padding : 10px 0px;
+
+.category .link {
+    text-align: left;
+    width: 40%;
     float: left;
-    text-decoration: none;
+    padding: 20px 10px;
+    font-weight: bold;
+}
+
+.category .link a {
+    text-decoration:none;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.language {
+    position: relative;
+    float: right;
+    clear: none;
+    height: max-content;
+    font-size: 100%;
+    border-color: #666;
+    border: 1px solid #00bfff;
+    border-radius: 10px;
+    padding: 10px 0px;
+    margin: 20px 0px 0px 20px;
+}
+
+.language h1 {
+    display: inline-block;
+    position: absolute;
+    top: -22px;
+    left: 10px;
+    background-color:#f5f5fa;
+    text-align: left;
+    padding: 0px 10px 0px 10px;
+    color: #1e90ff;
+    font-size: 105%;
+    font-weight: bold;
+}
+
+.language .link {
+    text-align: left;
+    width: 40%;
+    float: left;
+    padding: 20px 10px;
+    font-weight: bold;
+}
+
+.language .link a {
+    text-decoration:none;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.subinfo {
+    position: sticky;
+    top : 50px;
+    float: right;
+    clear: none;
+	font-size: 100%;
+	text-align: left;
+	color: #c0c0c0;
+	padding: 10px;
+	max-height: 100vh;
+}
+
+.subinfo .link a {
+    text-decoration:none;
+	width: 100%;
+    height: auto;
+	font-size: 100%;
+    list-style-type: none;
+    margin: 0px 10px;
+    padding : 10px 5px;
+	text-decoration: none;
+	border-top: 0.5px solid #4a488e;
+	border-bottom: 0.5px solid #4a488e;
     display: block;
     color: #030;
+    float: left;
+    text-align:left;
 }
-.subinfo .link a:hover {
+
+.subinfo .link:hover {
 	color: #FFC;
 	background-color: #add8e6;
 }

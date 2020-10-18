@@ -4,16 +4,54 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.model.sql.mapper.ArticleMapper">
 
-	<select id="select" resultType="com.model.sql.dto.Article">
+	<select id="SEL_ARTILCE_MNG" resultType="com.model.sql.dto.ArticleMNG">
 		SELECT 
-		  id, 
-		  title, 
-		  details, 
-		  finished 
+		  A.ID, 
+		  A.NAME,
+		  A.TITLE, 
+		  A.REG_DATE, 
+		  A.UP_DATE, 
+		  A.CATEGORY_ID, 
+		  B.NAME AS CATEGORY_NAME, 
+		  A.LANGUAGE_ID, 
+		  C.NAME AS LANGUAGE_NAME 
         FROM 
-            todo 
-        WHERE 
-            id = #{id}
+          ARTICLE_MNG A,
+          CATEGORY_MNG B,
+          LANGUAGE_MNG C 
+        WHERE
+          A.CATEGORY_ID = B.ID
+        AND 
+          A.LANGUAGE_ID = C.ID 
+        ORDER BY A.UP_DATE DESC
 	</select>
 
+    <select id="SEL_SIDE_LINK" resultType="com.model.sql.dto.SideLink" parameterType="com.param.ParamBean">
+        SELECT 
+          LINK_ID,
+          LINK_TEXT
+        FROM 
+          SIDE_LINK 
+        WHERE
+          ARTICLE_ID = #{id}
+        ORDER BY INDEX_ID
+    </select>
+
+    <select id="SEL_CATEGORY_MNG" resultType="com.model.sql.dto.CategoryMng">
+        SELECT 
+          ID,
+          NAME
+        FROM 
+          CATEGORY_MNG 
+        ORDER BY ID
+    </select>
+
+    <select id="SEL_LANGUAGE_MNG" resultType="com.model.sql.dto.LanguageMng">
+        SELECT 
+          ID,
+          NAME
+        FROM 
+          LANGUAGE_MNG 
+        ORDER BY ID
+    </select>
 </mapper>

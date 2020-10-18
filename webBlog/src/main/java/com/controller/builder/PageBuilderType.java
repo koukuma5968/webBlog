@@ -1,89 +1,64 @@
 package com.controller.builder;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.model.html.body.SideBean;
-import com.model.html.body.TopBean;
-import com.model.html.footer.FooterBean;
-import com.model.html.header.HeaderBean;
+import com.model.sql.dao.SideLinkDao;
+import com.param.ParamBean;
 
 public enum PageBuilderType implements BuilderInterface {
 
-	HEAD {
+	ARTICLE("articleBean") {
 		@Override
-		public Object createBody() {
+		public Object createBody(ParamBean param) {
 
-			HeaderBean head = new HeaderBean();
-			head.setTitle("ブログ（仮）");
-			return head;
-		}
-	},
-	TOP {
-
-		@Override
-		public Object createBody() {
-
-			String[] strs = {"ホーム", "java"};
-			ArrayList<TopBean> topLinkList = new ArrayList<TopBean>();
-			TopBean top = null;
-			for (String str : strs) {
-				top = new TopBean();
-				top.setLink(str);
-				topLinkList.add(top);
-			}
-
-			return topLinkList;
-		}
-		
-	},
-	ARTICLE {
-		@Override
-		public Object createBody() {
-
-			String articleHtml = "common/article/SpringToolInst/sheet001.html";
-			String articleCss = "/article/SpringToolInst/stylesheet.css";
+			String articleHtml = this.getHtmlPass().concat(param.getPath()).concat(this.getHtml());
+			String articleCss = this.getCssPass().concat(param.getPath()).concat(getCss());
 
 			HashMap<String, String> articleBean = new HashMap<String, String>();
+
 			articleBean.put("articleHtml", articleHtml);
 			articleBean.put("articleCss", articleCss);
 
 			return articleBean;
 		}
+
 	},
-	SIDE {
+	SIDE("sideLink") {
 		@Override
-		public Object createBody() {
-
-			String[][] sidestrs = {
-					{"T1", "Spring tool suiteの導入"}
-					,{"H1", "Spring tool suiteをダウンロード"}
-					,{"H2", "Spring tool suiteをインストール"}
-					,{"H3", "Spring tool suiteを起動"}
-					,{"H4", "Spring tool suiteを日本語化"}
-					};
-
-			ArrayList<SideBean> sideLinkList = new ArrayList<SideBean>();
-			SideBean side = null;
-			for (String[] sidestr : sidestrs) {
-
-				side = new SideBean();
-
-				side.setLinkId(sidestr[0]);
-				side.setLinkText(sidestr[1]);
-				sideLinkList.add(side);
-			}
-
-			return sideLinkList;
-		}
-	},
-	FOOT {
-		@Override
-		public Object createBody() {
-
-			FooterBean foot = new FooterBean();
-
-			return foot;
+		public Object createBody(ParamBean param) {
+			return SideLinkDao.SEL_SIDE_LINK(param);
 		}
 	};
+
+	private PageBuilderType(String key) {
+		this.key = key;
+	}
+
+	private String key;
+
+	public String getKey() {
+		return this.key;
+	}
+
+	private String htmlPass = "common/article/";
+	private String html = "/sheet001.html";
+	private String cssPass = "/article/";
+	private String css = "/stylesheet.css";
+
+	public String getHtmlPass() {
+		return htmlPass;
+	}
+
+	public String getHtml() {
+		return html;
+	}
+
+	public String getCssPass() {
+		return cssPass;
+	}
+
+	public String getCss() {
+		return css;
+	}
+
 }

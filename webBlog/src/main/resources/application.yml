@@ -1,16 +1,16 @@
 server:
-  port: 9080
+  port: 8009
   servlet:
-    context-path: /blog
-  ajp:
-    port: 8009
-    schema: http
+    context-path: /
+    schema: https
     redirectport: 8443
-    secure: false
+    secure: true
     allowtrace: false
 spring:
   datasource:
-    username: kou
-    password: Kosuke&5968
-    url: jdbc:mysql://localhost:3306/sample_db
+    username: externaluser
+    password: externalPass&01
+    url: jdbc:mysql://192.168.133.129:3306/weblogdb
     driverClassName: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath*:/sql/*.xml

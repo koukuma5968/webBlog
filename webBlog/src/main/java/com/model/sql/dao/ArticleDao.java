@@ -1,16 +1,12 @@
 package com.model.sql.dao;
 
-import com.model.sql.dto.body.article.ArticleDto;
-import com.model.sql.mapper.ArticleMapper;
+import java.util.List;
 
-public class ArticleDao {
+import com.model.sql.dto.ArticleMNG;
 
-	public static ArticleMapper articleMapper = null;
+public class ArticleDao extends DaoBase {
 
-	public static ArticleDto getArticle(String id) {
-
-		return articleMapper.SEL_ATICLE_BY_ID(id);
-
+	public static List<ArticleMNG> getArticleMNG() {
+		return articleMapper.SEL_ARTILCE_MNG();
 	}
-
 }

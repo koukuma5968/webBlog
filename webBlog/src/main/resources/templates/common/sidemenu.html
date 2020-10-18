@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-	<th:block th:fragment="sidemenuFragment">
-		<div class="submenu">
-	        <div class="link" th:each="menu: ${sideMenuList}">
-				<a th:href="${menu.linkAction}" th:text="${menu.linkText}"></a>
-			</div>
-		</div>
+    <div class="rightmenu" th:fragment="sidemenuFragment">
+	    <div class="category" th:insert="common/category :: categoryFragment"></div>
+	    <div class="language" th:insert="common/language :: languageFragment"></div>
 		<div class="subinfo">
-	        <div class="link" th:each="info: ${sideBeanList}">
-				<a th:href="'#'+${info.linkId}" th:text="${info.linkText}"></a>
-			</div>
+		    <div class="link" th:each="info: ${sideLink}">
+		        <a th:href="'#'+${info.link_id}" th:text="${info.link_text}"></a>
+		    </div>
 		</div>
-	</th:block>
+    </div>
 </body>
 </html>

@@ -1,11 +1,23 @@
 package com.model.sql.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
-import com.model.sql.dto.body.article.ArticleDto;
+import com.model.sql.dto.ArticleMNG;
+import com.model.sql.dto.CategoryMng;
+import com.model.sql.dto.LanguageMng;
+import com.model.sql.dto.SideLink;
+import com.param.ParamBean;
 
 @Mapper
 public interface ArticleMapper {
 
-	public ArticleDto SEL_ATICLE_BY_ID(String id);
+	public List<ArticleMNG> SEL_ARTILCE_MNG();
+
+	public List<SideLink> SEL_SIDE_LINK(ParamBean param);
+
+	public List<CategoryMng> SEL_CATEGORY_MNG();
+
+	public List<LanguageMng> SEL_LANGUAGE_MNG();
 }
