@@ -7,8 +7,10 @@ import java.util.List;
 
 import com.model.html.footer.FooterBean;
 import com.model.html.header.HeaderBean;
+import com.model.sql.dao.ArticleDao;
 import com.model.sql.dao.CategoryDao;
 import com.model.sql.dao.LanguageDao;
+import com.model.sql.dto.ArticleMNG;
 import com.model.sql.dto.CategoryMng;
 import com.model.sql.dto.LanguageMng;
 import com.param.ParamBean;
@@ -16,17 +18,36 @@ import com.util.RequestCipher;
 
 public enum CommonBuilderType implements BuilderInterface {
 
-	HEAD("head") {
+	HEAD("headlist") {
 		@Override
 		public Object createBody(ParamBean param) {
 
+			ArrayList<HeaderBean> headList = new ArrayList<HeaderBean>();
 			HeaderBean head = new HeaderBean();
+
+			head.setTitle("Home");
+			head.setLink("/");
+
+			headList.add(head);
+			RequestCipher cipr = new RequestCipher();
+			head = new HeaderBean();
+
 			if (param != null) {
-				head.setTitle("Home");
+				if (param.getType() == 0) {
+					ArticleMNG amng = ArticleDao.getArticleMNGName(param);
+					head.setTitle(amng.getTitle());
+				} else {
+					head.setTitle(param.getPath());
+				}
+				head.setLink(param.getName() + cipr.encode(param));
 			} else {
 				head.setTitle("最新記事一覧");
+				head.setLink("/");
 			}
-			return head;
+
+			headList.add(head);
+
+			return headList;
 		}
 
 	},
@@ -45,6 +66,7 @@ public enum CommonBuilderType implements BuilderInterface {
 				ParamBean bean = new ParamBean();
 				bean.setId(cate.getId());
 				bean.setPath(cate.getName());
+				bean.setType(1);
 
 				RequestCipher cipr = new RequestCipher();
 
@@ -74,6 +96,7 @@ public enum CommonBuilderType implements BuilderInterface {
 				ParamBean bean = new ParamBean();
 				bean.setId(lang.getId());
 				bean.setPath(lang.getName());
+				bean.setType(2);
 
 				RequestCipher cipr = new RequestCipher();
 

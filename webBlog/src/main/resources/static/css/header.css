@@ -1,9 +1,6 @@
 @charset "UTF-8";
 .header {
     text-align: center;
-/*
-    background : linear-gradient(#0000cd, #4169e1 30%, #000080 85%, #191970 95%)
-*/
     background : #6495ed;
     height: 60px;
     margin-top: 0px;
@@ -14,6 +11,20 @@
     font-size: 20px;
     top : 0;
 }
-.header .title {
-   padding-top: 10px;
+.Toptitle {
+    float: left;
+    width: 100%;
+    text-align:left;
+}
+.new-entry {
+    border-bottom: 4px solid #1e90ff;
+    margin : 20px 0px;
+}
+.new-title {
+    font-style: italic;
+    vertical-align: text-bottom;
+}
+.new-entry .new-title a {
+    text-decoration: none;
+    margin-right: 20px;
 }

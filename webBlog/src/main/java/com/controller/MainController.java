@@ -31,6 +31,7 @@ public class MainController extends PageBuilder {
 
 		RequestCipher cipr = new RequestCipher();
 		ParamBean bean = cipr.decode(param);
+		bean.setName("/category?get=");
 
 		super.executeCategory(model, bean);
 
@@ -42,6 +43,7 @@ public class MainController extends PageBuilder {
 
 		RequestCipher cipr = new RequestCipher();
 		ParamBean bean = cipr.decode(param);
+		bean.setName("/article?get=");
 
 		super.executeArticle(model, bean);
 

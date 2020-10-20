@@ -18,7 +18,7 @@ public enum TopMenuBuilderType implements BuilderInterface {
 		public Object createBody(ParamBean param) {
 
 			ArrayList<Object> articleList = new ArrayList<Object>();
-			List<ArticleMNG> amngList = ArticleDao.getArticleMNG();
+			List<ArticleMNG> amngList = ArticleDao.getArticleMNG(param);
 			Iterator<ArticleMNG> it = amngList.iterator();
 			while (it.hasNext()) {
 

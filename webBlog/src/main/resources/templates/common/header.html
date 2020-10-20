@@ -4,7 +4,11 @@
 <th:block th:fragment="headerFragment">
     <div class="Toptitle">
         <div class="new-entry">
-            <em class="new-title" th:text="${head.title}"></em>
+            <em class="new-title">
+                <th:block th:each="head: ${headlist}">
+                    <a th:href="@{${head.link}}" th:text="${head.title}"></a>
+                </th:block>
+            </em>
         </div>
     </div>
 </th:block>

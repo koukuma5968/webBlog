@@ -22,13 +22,6 @@ ul {
 	height: 100%;
 	display: flex;
 }
-.new-entry {
-	border-bottom: 4px solid #1e90ff;
-    margin : 20px 0px;
-}
-.new-title {
-    vertical-align: text-bottom;
-}
 /* フッター */
 .footer {
 clear: both;

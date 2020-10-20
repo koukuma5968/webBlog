@@ -3,7 +3,9 @@ package com.param;
 public class ParamBean {
 
 	private int id = 0;
-	private String path = "";
+	private int type = 0;
+	private String path = null;
+	private String name = null;
 
 	public int getId() {
 		return id;
@@ -19,6 +21,22 @@ public class ParamBean {
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 }

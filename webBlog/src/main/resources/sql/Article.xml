@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.model.sql.mapper.ArticleMapper">
 
-	<select id="SEL_ARTILCE_MNG" resultType="com.model.sql.dto.ArticleMNG">
+	<select id="SEL_ARTILCE_MNG" resultType="com.model.sql.dto.ArticleMNG" parameterType="com.param.ParamBean">
 		SELECT 
 		  A.ID, 
 		  A.NAME,
@@ -19,12 +19,31 @@
           ARTICLE_MNG A,
           CATEGORY_MNG B,
           LANGUAGE_MNG C 
-        WHERE
-          A.CATEGORY_ID = B.ID
+        WHERE 
+          A.CATEGORY_ID = B.ID 
         AND 
           A.LANGUAGE_ID = C.ID 
+        <choose>
+          <when test="type == 1">
+          AND 
+            A.CATEGORY_ID = #{id} 
+          </when>
+          <when test="type == 2">
+          AND 
+            A.LANGUAGE_ID = #{id} 
+          </when>
+        </choose>
         ORDER BY A.UP_DATE DESC
 	</select>
+
+    <select id="SEL_ARTILCE_MNG_NAME" resultType="com.model.sql.dto.ArticleMNG" parameterType="com.param.ParamBean">
+        SELECT 
+          A.TITLE 
+        FROM 
+          ARTICLE_MNG A 
+        WHERE 
+          A.NAME = #{path} 
+    </select>
 
     <select id="SEL_SIDE_LINK" resultType="com.model.sql.dto.SideLink" parameterType="com.param.ParamBean">
         SELECT 

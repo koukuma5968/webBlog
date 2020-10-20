@@ -13,7 +13,7 @@ public class PageBuilder {
 		}
 
 		for (TopMenuBuilderType page : TopMenuBuilderType.values()) {
-			model.addAttribute(page.getKey(), page.createBody(null));
+			model.addAttribute(page.getKey(), page.createBody(new ParamBean()));
 		}
 
 	}

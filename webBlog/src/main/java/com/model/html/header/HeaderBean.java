@@ -4,7 +4,7 @@ public class HeaderBean {
 
 	private String title;
 	
-	private String imagePath;
+	private String link;
 
 	public String getTitle() {
 		return title;
@@ -14,12 +14,12 @@ public class HeaderBean {
 		this.title = title;
 	}
 
-	public String getImagePath() {
-		return imagePath;
+	public String getLink() {
+		return link;
 	}
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setLink(String link) {
+		this.link = link;
 	}
 
 }

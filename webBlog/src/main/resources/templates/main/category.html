@@ -12,7 +12,7 @@
 <header class="header"></header>
 <main class="main-inner">
     <div class="mainarea">
-        <th:block class="header" th:insert="common/header :: headerFragment"></th:block>
+        <th:block th:insert="common/header :: headerFragment"></th:block>
         <div class="menulist">
             <div class="menu" th:each="article: ${articleList}">
                 <th:block th:object="${article.articleMNG}">

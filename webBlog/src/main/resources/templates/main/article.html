@@ -13,7 +13,7 @@
 <header class="header" ></header>
 <main class="main-inner">
     <div class="ArticlePage">
-        <th:block class="header" th:insert="common/header :: headerFragment"></th:block>
+        <th:block th:insert="common/header :: headerFragment"></th:block>
 		<div class="Article">
 		    <th:block th:replace="${articleBean.articleHtml}"></th:block>
 		</div>
