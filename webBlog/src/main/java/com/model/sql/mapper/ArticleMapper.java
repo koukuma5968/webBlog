@@ -22,4 +22,8 @@ public interface ArticleMapper {
 	public List<LanguageMng> SEL_LANGUAGE_MNG();
 
 	public ArticleMNG SEL_ARTILCE_MNG_NAME(ParamBean param);
+
+	public CategoryMng SEL_CATEGORY_MNG_NAME(ParamBean param);
+
+	public LanguageMng SEL_LANGUAGE_MNG_NAME(ParamBean param);
 }

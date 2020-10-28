@@ -36,8 +36,12 @@ public enum CommonBuilderType implements BuilderInterface {
 				if (param.getType() == 0) {
 					ArticleMNG amng = ArticleDao.getArticleMNGName(param);
 					head.setTitle(amng.getTitle());
-				} else {
-					head.setTitle(param.getPath());
+				} else if (param.getType() == 1) {
+					CategoryMng cate = CategoryDao.SEL_CATEGORY_MNG_NAME(param);
+					head.setTitle(cate.getName());
+				} else if (param.getType() == 2) {
+					LanguageMng lang = LanguageDao.SEL_LANGUAGE_MNG_NAME(param);
+					head.setTitle(lang.getName());
 				}
 				head.setLink(param.getName() + cipr.encode(param));
 			} else {
