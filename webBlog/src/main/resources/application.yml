@@ -3,6 +3,7 @@ server:
   servlet: 
     context-path: /blog/
 tomcat: 
+  document-root: /wwwroot/document
   ajp: 
     port: 8009
     remoteauthentication: false

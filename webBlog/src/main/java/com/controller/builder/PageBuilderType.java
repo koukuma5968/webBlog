@@ -12,12 +12,10 @@ public enum PageBuilderType implements BuilderInterface {
 		public Object createBody(ParamBean param) {
 
 			String articleHtml = this.getHtmlPass().concat(param.getPath()).concat(this.getHtml());
-			String articleCss = this.getCssPass().concat(param.getPath()).concat(getCss());
 
 			HashMap<String, String> articleBean = new HashMap<String, String>();
 
 			articleBean.put("articleHtml", articleHtml);
-			articleBean.put("articleCss", articleCss);
 
 			return articleBean;
 		}
@@ -40,10 +38,8 @@ public enum PageBuilderType implements BuilderInterface {
 		return this.key;
 	}
 
-	private String htmlPass = "common/article/";
-	private String html = "/sheet001.html";
-	private String cssPass = "/article/";
-	private String css = "/stylesheet.css";
+	private String htmlPass = "/article/";
+	private String html = "/sheet001";
 
 	public String getHtmlPass() {
 		return htmlPass;
@@ -51,14 +47,6 @@ public enum PageBuilderType implements BuilderInterface {
 
 	public String getHtml() {
 		return html;
-	}
-
-	public String getCssPass() {
-		return cssPass;
-	}
-
-	public String getCss() {
-		return css;
 	}
 
 }

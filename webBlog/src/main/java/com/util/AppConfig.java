@@ -7,8 +7,15 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.CacheControl;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.thymeleaf.templatemode.TemplateMode;
+import org.thymeleaf.templateresolver.FileTemplateResolver;
 
+import java.io.File;
 import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class AppConfig {
@@ -19,11 +26,26 @@ public class AppConfig {
 	@Value("${tomcat.ajp.remoteauthentication}")
 	String remoteAuthentication;
 
+	@Value("${tomcat.document-root}")
+	String documentroot;
+
+	@Bean
+	public FileTemplateResolver thirdTemplateResolver() {
+		FileTemplateResolver thirdTemplateResolver = new FileTemplateResolver();
+		thirdTemplateResolver.setPrefix(documentroot); //フォルダパスを記載
+		thirdTemplateResolver.setSuffix(".html");
+		thirdTemplateResolver.setTemplateMode(TemplateMode.HTML);
+		thirdTemplateResolver.setCharacterEncoding("UTF-8");
+		thirdTemplateResolver.setOrder(3);
+		thirdTemplateResolver.setCheckExistence(true);
+		thirdTemplateResolver.setCacheTTLMs(10000L); //テンプレートのキャッシュ時間（ms）
+
+		return thirdTemplateResolver;
+	}
+
 	@Bean
 	public WebServerFactoryCustomizer<TomcatServletWebServerFactory> servletContainer() {
-		return server ->
-		Optional.ofNullable(server)
-		.ifPresent(s -> s.addAdditionalTomcatConnectors(redirectConnector()));
+		return getFactory();
 	}
 
 	private Connector redirectConnector() {
@@ -35,6 +57,15 @@ public class AppConfig {
 		((AbstractAjpProtocol) ajpConnector.getProtocolHandler()).setSecretRequired(false);
 
 		return ajpConnector;
+	}
+
+	private WebServerFactoryCustomizer<TomcatServletWebServerFactory> getFactory() {
+
+		return server -> {
+			server.setDocumentRoot(new File(documentroot));
+			Optional.ofNullable(server)
+			.ifPresent(s -> s.addAdditionalTomcatConnectors(redirectConnector()));
+		};
 	}
 
 }
