@@ -9,15 +9,14 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/article.css}" />
 </head>
 <body>
-<header class="header" ></header>
+<th:block th:insert="common/leftmenu :: leftsidemenuFragment"></th:block>
 <main class="main-inner">
     <div class="ArticlePage">
-        <th:block th:insert="common/header :: headerFragment"></th:block>
 		<div class="Article">
 		    <th:block th:replace="${articleBean.articleHtml}"></th:block>
 		</div>
     </div>
-	<th:block th:insert="common/sidemenu :: sidemenuFragment"></th:block>
+	<th:block th:insert="common/rightmenu :: rightsidemenuFragment"></th:block>
 </main>
 <br clear=left>
 <div class="footer">

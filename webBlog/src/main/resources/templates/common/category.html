@@ -3,7 +3,7 @@
 <meta charset="UTF-8" />
 <body>
 	<th:block th:fragment="categoryFragment">
-		<h1>カテゴリ</h1>
+		<h3>カテゴリ</h3>
 		<ul>
 			<li class="link" th:each="cate: ${categoryList}">
    			    <a th:href="@{'/category?get='+${cate.encParam}}" th:text="${cate.name}"></a>

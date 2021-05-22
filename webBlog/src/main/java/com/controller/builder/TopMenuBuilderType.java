@@ -27,7 +27,7 @@ public enum TopMenuBuilderType implements BuilderInterface {
 
 				ParamBean bean = new ParamBean();
 				bean.setId(amng.getId());
-				bean.setPath(amng.getName());
+				bean.setPath(amng.getCategory_dir() + "/"+ amng.getName());
 
 				RequestCipher cipr = new RequestCipher();
 

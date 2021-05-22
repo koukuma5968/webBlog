@@ -13,15 +13,21 @@ body {
 }
 
 ul {
-	list-style: decimal;
+	list-style: disc;
+}
+
+img {
+    box-shadow: 0px 0px 5px 1px rgba(0.25,0.25,0.25,0.25);
 }
 
 .main-inner {
-	width: 1500px;
+    text-align: right;
 	margin : 0px auto;
+	margin-left: 400px;
 	height: 100%;
 	display: flex;
 }
+
 /* フッター */
 .footer {
 clear: both;

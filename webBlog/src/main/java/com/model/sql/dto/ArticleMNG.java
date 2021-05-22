@@ -9,6 +9,7 @@ public class ArticleMNG {
 	private String UP_DATE;
 	private int category_id;
 	private String category_name;
+	private String category_dir;
 	private int language_id;
 	private String language_name;
 
@@ -65,6 +66,12 @@ public class ArticleMNG {
 	}
 	public void setLanguage_name(String language_name) {
 		this.language_name = language_name;
+	}
+	public String getCategory_dir() {
+		return category_dir;
+	}
+	public void setCategory_dir(String category_dir) {
+		this.category_dir = category_dir;
 	}
 
 }

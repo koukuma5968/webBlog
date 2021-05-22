@@ -2,7 +2,7 @@
 .header {
     text-align: center;
     background : #6495ed;
-    height: 60px;
+    height: 30px;
     margin-top: 0px;
     margin-right: 0px;
     margin-bottom: 10px;
@@ -16,14 +16,22 @@
     width: 100%;
     text-align:left;
 }
+
+.Toptitle a:link {
+    font-size: 13.0pt;
+    font-weight: bold;
+    font-family:Verdana, “游ゴシック”, YuGothic, “Hiragino Kaku Gothic ProN”, Meiryo, sans-serif;
+}
+
 .new-entry {
-    border-bottom: 4px solid #1e90ff;
-    margin : 20px 0px;
+    border-left: 4px solid #ecb630;
 }
+
 .new-title {
-    font-style: italic;
     vertical-align: text-bottom;
+    margin : 10px 15px;
 }
+
 .new-entry .new-title a {
     text-decoration: none;
     margin-right: 20px;

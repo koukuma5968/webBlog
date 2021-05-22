@@ -15,4 +15,7 @@ public class ArticleDao extends DaoBase {
 		return articleMapper.SEL_ARTILCE_MNG_NAME(param);
 	}
 
+	public static List<ArticleMNG> getArchiveList() {
+		return articleMapper.SEL_ARCHIVE_LIST();
+	}
 }

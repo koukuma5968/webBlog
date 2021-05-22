@@ -3,7 +3,7 @@
 <meta charset="UTF-8" />
 <body>
 	<th:block th:fragment="languageFragment">
-		<h1>言語</h1>
+		<h3>言語</h3>
 		<ul>
 			<li class="link" th:each="lang: ${languageList}">
 				<a th:href="@{'/category?get='+${lang.encParam}}" th:text="${lang.name}"></a>

@@ -1,5 +1,8 @@
 package com.util;
 
+import java.io.File;
+import java.util.Optional;
+
 import org.apache.catalina.connector.Connector;
 import org.apache.coyote.ajp.AbstractAjpProtocol;
 import org.springframework.beans.factory.annotation.Value;
@@ -7,15 +10,8 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.CacheControl;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
-
-import java.io.File;
-import java.util.Optional;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class AppConfig {
@@ -39,6 +35,8 @@ public class AppConfig {
 		thirdTemplateResolver.setOrder(3);
 		thirdTemplateResolver.setCheckExistence(true);
 		thirdTemplateResolver.setCacheTTLMs(10000L); //テンプレートのキャッシュ時間（ms）
+
+		FileUtil.setDocumentroot(documentroot);
 
 		return thirdTemplateResolver;
 	}

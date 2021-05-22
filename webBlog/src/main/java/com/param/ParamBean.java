@@ -6,6 +6,7 @@ public class ParamBean {
 	private int type = 0;
 	private String path = null;
 	private String name = null;
+	private String filename = null;
 
 	public int getId() {
 		return id;
@@ -37,6 +38,14 @@ public class ParamBean {
 
 	public void setType(int type) {
 		this.type = type;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 
 }

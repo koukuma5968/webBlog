@@ -1,13 +1,14 @@
 @charset "UTF-8";
 
 .mainarea {
-    width: 80%;
+    width: 100%;
     font-size: 100%;
-    height: 50%;
-    margin-top: 10px;
+    height: 100%;
+    margin-top: 40px;
     margin-bottom: 5px;
     padding: 0px 10px 10px 10px;
     display: block;
+    border-top: 4px solid #6495ed;
 }
 
 .menulist {
@@ -21,9 +22,9 @@
 }
 
 .menu {
-    width: 46%;
+    width: 30%;
     float: left;
-    margin: 10px 20px;
+    margin: 10px 15px;
 }
 
 .menu:hover {
@@ -37,16 +38,18 @@
     width: 97%;
     height: 70px;
     float: left;
-    font-size: 28px;
-    color: #0d0015;
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bold;
+    color: #004488;
     border-radius: 10px 10px 0px 0px;
-    background: linear-gradient(340deg, #FFF, #6495ed); 
+    background: linear-gradient(160deg, #FFF 10%, #eaf4fc 30%, #ebf6f7 20%, #6495ed); 
     position: sticky;
 }
 
 .menu .remarks {
     width: 97%;
-    height: 40%;
+    height: 30px;
 	padding: 10px;
 	font-size: 70%;
     border-radius: 0px 0px 10px 10px;
@@ -55,11 +58,13 @@
 }
 
 .menu .remarks .time {
-    text-align: right;
+    color: #3e475b;
+	text-align: right;
     float: right;
 }
 
 .menu .remarks .cate {
+    color: #3e475b;
     text-align: left;
     float: left;
     padding-right: 20px;

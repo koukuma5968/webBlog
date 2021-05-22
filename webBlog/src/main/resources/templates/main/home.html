@@ -9,10 +9,9 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/article.css}" />
 </head>
 <body>
-<header class="header"></header>
+<th:block th:insert="common/leftmenu :: leftsidemenuFragment"></th:block>
 <main class="main-inner">
     <div class="mainarea">
-        <th:block th:insert="common/header :: headerFragment"></th:block>
 	    <div class="menulist">
 			<div class="menu" th:each="article: ${articleList}">
 				<th:block th:object="${article.articleMNG}">
@@ -30,7 +29,7 @@
 			</div>
 	    </div>
     </div>
-    <th:block th:insert="common/sidemenu :: sidemenuFragment"></th:block>
+    <th:block th:insert="common/rightmenu :: rightsidemenuFragment"></th:block>
 </main>
 </body>
 </html>
