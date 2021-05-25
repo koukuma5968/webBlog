@@ -129,8 +129,7 @@
 }
 
 .leftmenu {
-    height: 100%;
-	position: absolute;
+    position: absolute;
     width: 280px;
     text-align: left;
     font-size: 100%;

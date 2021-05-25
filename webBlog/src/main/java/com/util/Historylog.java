@@ -28,4 +28,24 @@ public class Historylog {
 
 		HistoryDao.insertDownloadHistory(bean);
 	}
+
+	public static void setAccessHistory(String userAgent, String page) {
+
+		LocalDateTime today = LocalDateTime.now();
+
+		if (systemday.getDayOfYear() != today.getDayOfYear()) {
+			HistoryDao.updateAccssesSeqReset();
+		}
+
+		HistoryDao.updateAccssesSeqIncriment();
+
+		HistoryBean bean = new HistoryBean();
+
+		bean.setDate(today.format(OUTPUT_FORMAT));
+		bean.setPage(page);
+		bean.setAgent(userAgent);
+
+		HistoryDao.insertAccssesHistory(bean);
+
+	}
 }

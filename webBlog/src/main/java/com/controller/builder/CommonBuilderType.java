@@ -69,6 +69,7 @@ public enum CommonBuilderType implements BuilderInterface {
 				ParamBean bean = new ParamBean();
 				bean.setId(cate.getId());
 				bean.setPath(cate.getName());
+				bean.setName(cate.getName());
 				bean.setType(1);
 
 				RequestCipher cipr = new RequestCipher();
@@ -99,6 +100,7 @@ public enum CommonBuilderType implements BuilderInterface {
 				ParamBean bean = new ParamBean();
 				bean.setId(lang.getId());
 				bean.setPath(lang.getName());
+				bean.setName(lang.getName());
 				bean.setType(2);
 
 				RequestCipher cipr = new RequestCipher();
@@ -129,6 +131,7 @@ public enum CommonBuilderType implements BuilderInterface {
 				ParamBean bean = new ParamBean();
 				bean.setId(archive.getId());
 				bean.setPath(archive.getName());
+				bean.setName(archive.getName());
 				bean.setType(2);
 
 				RequestCipher cipr = new RequestCipher();
@@ -158,7 +161,7 @@ public enum CommonBuilderType implements BuilderInterface {
 
 				ParamBean bean = new ParamBean();
 				bean.setId(content.getId());
-				bean.setName(content.getName() + " (" + content.getType() + ") " + content.getSize());
+				bean.setName(content.getName() + " " + content.getType() + " " + content.getSize());
 				bean.setPath(content.getPath());
 				bean.setFilename(content.getFilename());
 				bean.setType(3);

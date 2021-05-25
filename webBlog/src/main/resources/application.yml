@@ -4,10 +4,12 @@ server:
     context-path: /blog/
 tomcat: 
   document-root: /wwwroot/document
+  cssfiles: classpath*:static/css/*.css
   ajp: 
     port: 8009
     remoteauthentication: false
 spring:
+  thymeleaf.cache: false
   data:
     rest:
       base-path: /api

@@ -38,4 +38,10 @@ public interface ArticleMapper {
 	public int UPD_CONTENT_DL_SEQ_INCRIMENT();
 
 	public int INS_DL_HISTORY(HistoryBean bean);
+
+	public int UPD_ACCSSES_HIST_SEQ_RESET();
+
+	public int UPD_ACCSSES_HIST_SEQ_INCRIMENT();
+
+	public int INS_ACCSSES_HISTORY(HistoryBean bean);
 }

@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 
 import javax.servlet.http.HttpServletResponse;
@@ -63,5 +64,24 @@ public class FileUtil {
             System.err.println(e);
         }
 
+	}
+
+	public static String getHtmlResouce(String htmlpath) {
+
+		StringBuffer buff = new StringBuffer();
+
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(getDocumentroot() + htmlpath + ".html")))) {
+
+			String str = null;
+			while ((str = reader.readLine()) != null) {
+				buff.append(str);
+				buff.append("\r\n");
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return buff.toString();
 	}
 }

@@ -1,5 +1,6 @@
 package com.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
@@ -23,55 +24,68 @@ public class MainController extends PageBuilder {
 	}
 
 	@RequestMapping(name="home", path="/")
-	public String home(Model model, @RequestHeader("User-Agent") String userAgent) {
+	public String home(Model model, @RequestHeader("User-Agent") String userAgent, 
+			HttpServletResponse response, HttpServletRequest request) {
 
 		String ret = "main/home";
 		if (UserAgentType.checkMobile(userAgent)) {
-			ret = "mobile/m	home";
+			ret = "mobile/mhome";
 		} else {
-			super.execute(model);
+			super.execute(model, userAgent);
 		}
 
 		return ret;
 	}
 
 	@RequestMapping(name="category", path="/category")
-	public String category(Model model, @RequestParam("get") String param, @RequestHeader("User-Agent") String userAgent) {
+	public String category(Model model, @RequestParam("get") String param, @RequestHeader("User-Agent") String userAgent, 
+			HttpServletResponse response, HttpServletRequest request) {
 
 		RequestCipher cipr = new RequestCipher();
 		ParamBean bean = cipr.decode(param);
-		bean.setName("/category?get=");
 
-		super.executeCategory(model, bean);
+		String ret = "main/category";
+		if (UserAgentType.checkMobile(userAgent)) {
+			ret = "mobile/mhome";
+		} else {
+			super.executeCategory(model, bean, userAgent);
+		}
 
-		return "main/category";
+		return ret;
 	}
 
 	@RequestMapping(name="article", path="/article")
-	public String article(Model model, @RequestParam("get") String param, @RequestHeader("User-Agent") String userAgent) {
+	public String article(Model model, @RequestParam("get") String param, @RequestHeader("User-Agent") String userAgent, 
+			HttpServletResponse response, HttpServletRequest request) {
 
 		RequestCipher cipr = new RequestCipher();
 		ParamBean bean = cipr.decode(param);
-		bean.setName("/article?get=");
 
-		super.executeArticle(model, bean);
+		String ret = "main/article";
+		if (UserAgentType.checkMobile(userAgent)) {
+			ret = "mobile/mhome";
+		} else {
+			super.executeArticle(model, bean, userAgent);
+		}
 
-		return "main/article";
+		return ret;
 	}
 
 	@RequestMapping(name="content", path="/content")
-	public String content(Model model, @RequestParam("get") String param, @RequestHeader("User-Agent") String userAgent) {
+	public String content(Model model, @RequestParam("get") String param, @RequestHeader("User-Agent") String userAgent, 
+			HttpServletResponse response, HttpServletRequest request) {
 
 		RequestCipher cipr = new RequestCipher();
 		ParamBean bean = cipr.decode(param);
 
-		super.executeContent(model, bean);
+		super.executeContent(model, bean, userAgent);
 
 		return "main/content";
 	}
 
 	@RequestMapping(name="download", path="/download")
-	public String download(Model model, @RequestParam("get") String param, @RequestHeader("User-Agent") String userAgent, HttpServletResponse response) {
+	public String download(Model model, @RequestParam("get") String param, @RequestHeader("User-Agent") String userAgent, 
+			HttpServletResponse response, HttpServletRequest request) {
 
 		RequestCipher cipr = new RequestCipher();
 		ParamBean bean = cipr.decode(param);

@@ -139,4 +139,33 @@
 		  #{agent} 
 		);
     </insert>
+
+    <update id="UPD_ACCSSES_HIST_SEQ_RESET">
+        UPDATE 
+          ACCSSES_HIST_SEQ 
+        SET 
+          ID=LAST_INSERT_ID(0);
+    </update>
+
+    <update id="UPD_ACCSSES_HIST_SEQ_INCRIMENT">
+        UPDATE 
+          ACCSSES_HIST_SEQ
+        SET 
+          ID=LAST_INSERT_ID(ID+1);
+    </update>
+
+    <insert id="INS_ACCSSES_HISTORY" parameterType="com.param.HistoryBean">
+		INSERT INTO ACCSSES_HISTORY (
+		  ACCSSES_DATE,
+		  SEQ_ID,
+		  ACCSSES_PAGE,
+		  AGENT 
+		) VALUES ( 
+		  #{date},
+		  (SELECT ID FROM ACCSSES_HIST_SEQ),
+		  #{page},
+		  #{agent} 
+		);
+    </insert>
+
 </mapper>

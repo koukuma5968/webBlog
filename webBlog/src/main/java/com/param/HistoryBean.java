@@ -6,6 +6,8 @@ public class HistoryBean {
 
 	private String date;
 
+	private String page;
+
 	private String agent;
 
 	public int getId() {
@@ -22,6 +24,14 @@ public class HistoryBean {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public String getPage() {
+		return page;
+	}
+
+	public void setPage(String page) {
+		this.page = page;
 	}
 
 	public String getAgent() {

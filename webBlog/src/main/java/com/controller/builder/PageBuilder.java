@@ -1,7 +1,5 @@
 package com.controller.builder;
 
-import java.util.HashMap;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.ui.Model;
@@ -12,7 +10,9 @@ import com.util.Historylog;
 
 public class PageBuilder {
 
-	protected void execute(Model model) {
+	protected void execute(Model model, String userAgent) {
+
+		Historylog.setAccessHistory(userAgent, "top");
 
 		for (CommonBuilderType common : CommonBuilderType.values()) {
 			model.addAttribute(common.getKey(), common.createBody(null));
@@ -24,7 +24,9 @@ public class PageBuilder {
 
 	}
 
-	public void executeArticle(Model model, ParamBean bean) {
+	public void executeArticle(Model model, ParamBean bean, String userAgent) {
+
+		Historylog.setAccessHistory(userAgent, bean.getName());
 
 		for (CommonBuilderType common : CommonBuilderType.values()) {
 			model.addAttribute(common.getKey(), common.createBody(bean));
@@ -36,7 +38,9 @@ public class PageBuilder {
 
 	}
 
-	public void executeCategory(Model model, ParamBean bean) {
+	public void executeCategory(Model model, ParamBean bean, String userAgent) {
+
+		Historylog.setAccessHistory(userAgent, bean.getName());
 
 		for (CommonBuilderType common : CommonBuilderType.values()) {
 			model.addAttribute(common.getKey(), common.createBody(bean));
@@ -48,7 +52,9 @@ public class PageBuilder {
 
 	}
 
-	public void executeContent(Model model, ParamBean bean) {
+	public void executeContent(Model model, ParamBean bean, String userAgent) {
+
+		Historylog.setAccessHistory(userAgent, bean.getName());
 
 		for (CommonBuilderType common : CommonBuilderType.values()) {
 			model.addAttribute(common.getKey(), common.createBody(bean));
@@ -58,20 +64,6 @@ public class PageBuilder {
 			model.addAttribute(page.getKey(), page.createBody(bean));
 		}
 
-	}
-
-	protected HashMap<String, Object> executeApi() {
-
-		HashMap<String, Object> ret = new HashMap<String, Object>();
-		for (CommonBuilderType common : CommonBuilderType.values()) {
-			ret.put(common.getKey(), common.createBody(null));
-		}
-
-		for (TopMenuBuilderType page : TopMenuBuilderType.values()) {
-			ret.put(page.getKey(), page.createBody(new ParamBean()));
-		}
-
-		return ret;
 	}
 
 	public void executeDownload(ParamBean bean, HttpServletResponse response, String userAgent) {
